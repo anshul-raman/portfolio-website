@@ -1,21 +1,29 @@
-import type { NextPage } from "next";
+import { Box, Container, Text } from "@chakra-ui/react";
+import type { NextPage, NextComponentType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { Children } from "react";
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage = () => {
+interface Props {
+  children?: React.ReactNode;
+}
+
+const Home: NextPage<Props> = ({children}) => {
   return (
-    <div className={styles.container}>
+    <Box as="main">
       <Head>
-        <title>Hello :)</title>
-        <meta name="description" content="Porfolio Website of Anshul Raman" />
+        <title>Anshul Raman - HomePage</title>
+        <meta name="description" content="Anshul's Homepage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>Under Construction :)</main>
-
-      <footer className={styles.footer}></footer>
-    </div>
+      <Container maxW={"container.md"} h="full" centerContent>
+        {/* Name and photo  */}
+        <Text>Hello</Text>
+        {children}
+      </Container>
+    </Box>
   );
 };
 
